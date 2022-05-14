@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app : anton-replica
+  name  : anton-replica
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app      : anton-replica
+  template:
+    metadata:
+      labels:
+        app : anton-replica
+    spec:
+      containers:
+      - image: nginx:latest
+        name : nginx
